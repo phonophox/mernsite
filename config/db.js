@@ -7,7 +7,7 @@ mongoose.set('useFindAndModify', false);
 const connectDB = async () => {
   try {
     await mongoose.connect(
-      process.env.MONGODB_URI || db,
+      db,
       {
         useNewUrlParser: true
       }
