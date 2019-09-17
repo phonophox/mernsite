@@ -7,6 +7,9 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+import code1 from '../images/code1.png';
+import paint1 from '../images/paint1.jpg';
+
 
 const Card = posed.div({
     hoverable: true,
@@ -104,6 +107,9 @@ class Home extends React.Component {
                             <div className="info-header">
                               <header className="text-center cardHeader">About</header>
                             </div>
+                            <div className="cardImg">
+                                <img src=""/>
+                            </div>
                             <div className="info">
                               <p className="text-center cardText">Information about the libraries and makings of this website.</p>
                             </div>
@@ -112,24 +118,30 @@ class Home extends React.Component {
                     </Col>
                     <Col md={4}>
                     <Card className="card" key="card" pose={this.state.isOpen2 ? 'open' : 'closed'}>
-                      <Link to="/about" id="card1"  className="info-card">
+                      <Link to="/art" id="card1"  className="info-card">
                         <div className="info-header">
-                          <header className="text-center cardHeader">About</header>
+                          <header className="text-center cardHeader">Artwork</header>
+                        </div>
+                        <div className="cardImg">
+                            <img />
                         </div>
                         <div className="info">
-                          <p className="text-center cardText">Information about the libraries and makings of this website.</p>
+                          <p className="text-center cardText">A gallery of my recent artworks, both physical and digital.</p>
                         </div>
                       </Link>
                       </Card>
                     </Col>
                     <Col md={4}>
                     <Card className="card" key="card" pose={this.state.isOpen3 ? 'open' : 'closed'}>
-                      <Link to="/about" id="card1"  className="info-card">
+                      <Link to="/contact" id="card1"  className="info-card">
                         <div className="info-header">
-                          <header className="text-center cardHeader">About</header>
+                          <header className="text-center cardHeader">Contact</header>
+                        </div>
+                        <div className="cardImg">
+                            <img />
                         </div>
                         <div className="info">
-                          <p className="text-center cardText">Information about the libraries and makings of this website.</p>
+                          <p className="text-center cardText">Ways to contact me for further information about the website or my dog.</p>
                         </div>
                       </Link>
                       </Card>

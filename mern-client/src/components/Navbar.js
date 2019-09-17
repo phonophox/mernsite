@@ -11,7 +11,6 @@ const Navbar = (props) => {
         <div className="navbarTop"/>
         <nav className="navbar d-flex flex-row sticky-top justify-content-md-between justify-content-sm-center justify-content-xs-center">
 
-          <img src="../../assets/images/myLogoMain.svg" className="d-none d-md-block align-middle" alt=""></img>
 
                 <Link className="nav-item align-middle font-weight-light " to="/home">
                   Home
@@ -30,7 +29,6 @@ const Navbar = (props) => {
                 </Link>
 
 
-          <img src="../../assets/images/myLogoMain.svg" className="d-none d-md-block align-middle" alt=""></img>
 
         </nav>
         </div>
