@@ -11,7 +11,7 @@ const Navbar = (props) => {
         <div className="navbarTop"/>
         <nav className="navbar d-flex flex-row sticky-top justify-content-md-between justify-content-sm-center justify-content-xs-center">
 
-
+                <div/>
                 <Link className="nav-item align-middle font-weight-light " to="/home">
                   Home
                 </Link>
@@ -27,6 +27,7 @@ const Navbar = (props) => {
                 <Link className="nav-item align-middle font-weight-light " to="/contact">
                   Contact
                 </Link>
+                <div/>
 
 
 

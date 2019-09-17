@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 
 var cors = require('cors');
 const path = require("path");
+const port = process.env.PORT || 8082;
 
 require("dotenv").config();
 
@@ -22,7 +23,7 @@ const art = require('./routes/api/art');
 app.use('/api/art', art);
 
 
-const port = process.env.PORT || 8082;
+
 
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "mern-client", "build", "index.html"));
