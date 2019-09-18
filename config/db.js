@@ -7,13 +7,13 @@ mongoose.set('useFindAndModify', false);
 const connectDB = async () => {
   try {
     await mongoose.connect(
-      process.env.MONGODB_URI || process.env.MONGOHQ_URL || db,
+      db,
       {
         useNewUrlParser: true
       }
     );
 
-    console.log('MongoDB is Connected...');
+    console.log('MongoDB is Connected on string + '+ db);
   } catch (err) {
     console.log("db.js");
     console.error(err.message);

@@ -6,10 +6,6 @@ const path = require("path");
 const port = process.env.PORT || 8082;
 
 
-
-
-
-
 const app = express();
 const http = require('http');
 var cors = require('cors');
