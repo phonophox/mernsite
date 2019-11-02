@@ -141,7 +141,7 @@ class Home extends React.Component {
                             <img />
                         </div>
                         <div className="info">
-                          <p className="text-center cardText">Ways to contact me for further information about the website or my dog.</p>
+                          <p className="text-center cardText">Further information and contact info for me or my dog.</p>
                         </div>
                       </Link>
                       </Card>

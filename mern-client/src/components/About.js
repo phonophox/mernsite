@@ -221,14 +221,14 @@ class About extends React.Component {
               </Col>
           </Row>
           <Row className="itemRow">
-                <Col className="itemCol">
-                    <ItemTopLeft className="item itemBottomLeft bootstrapLogo"><Icon className="logoImage" src={bootstrapLogo} onClick={(e) => this.setText(8)}/></ItemTopLeft>
+                <Col xs={3} md={4} className="itemCol">
+                    <ItemTopLeft className="item itemBottomLeft bootstrapLogo sideLogos"><Icon className="logoImage" src={bootstrapLogo} onClick={(e) => this.setText(8)}/></ItemTopLeft>
                 </Col>
-                <Col className="itemCol centerCol">
+                <Col xs={6} md={4} className="itemCol centerCol">
                     <CenterText pose={isEnter ? 'open' : 'closed'} className="text-center"><h3 className= "centerHeader">{this.state.header}</h3><p className="aboutText">{this.state.text}</p></CenterText>
                 </Col>
-                <Col className="itemCol">
-                    <ItemBottomRight className="item itemBottomRight"><Icon className="logoImage" src={herokuLogo} onClick={(e) => this.setText(4)}/></ItemBottomRight>
+                <Col xs={3} md={4} className="itemCol">
+                    <ItemBottomRight className="item itemBottomRight sideLogos"><Icon className="logoImage" src={herokuLogo} onClick={(e) => this.setText(4)}/></ItemBottomRight>
                 </Col>
           </Row>
           <Row className="itemRow">
