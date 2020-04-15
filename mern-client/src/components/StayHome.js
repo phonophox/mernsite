@@ -134,7 +134,7 @@ class StayHome extends Component {
 	  this.state.numPlayers +=1;  
   };
   addAI(){
-	  this.state.numAI +=1;
+	  this.setState({numAI: this.state.numAI + 1});
   };
 //  handlePlayerNameChange(i, event){
 //	  this.setState({players["player"+i].name: event.target.value});
@@ -145,34 +145,36 @@ class StayHome extends Component {
 
   render() {
     return (
-    	<div className="StayHome">
-    		<div className="player-settings">
-	    		<Container>
-		            <Row>
-			            <Col>
-			            	<button onClick={this.addPlayer}>Add Player</button>
-			            </Col>
-			            <Col>
-			            	<button onClick={this.addAI}>Add AI</button>
-		            	</Col>
-		            </Row>
-	            	<Row>
-	                <Col>
-		                <p>number of AI: {this.state.numAI} </p>
-	                </Col>
-		    		</Row>
-		            
-	            </Container>
-    		</div>
-    		<div>
-            	<Container>
-                	<Row>
-	                    <Col className="boardArea">
-	                    </Col>
-                    </Row>
-                </Container>
-            </div>
-       </div>
+			<div className="StayHomeContainer">
+			<div className="StayHome">
+				<div className="PlayerSettings">
+					<Container>
+						<Row>
+							<Col>
+								<button onClick={this.addPlayer}>Add Player</button>
+							</Col>
+							<Col>
+								<button onClick={this.addAI}>Add AI</button>
+							</Col>
+						</Row>
+						<Row>
+						<Col>
+							<p>number of AI: {this.state.numAI} </p>
+						</Col>
+						</Row>
+
+					</Container>
+				</div>
+				<div>
+					<Container>
+						<Row>
+							<Col className="boardArea">
+							</Col>
+						</Row>
+					</Container>
+				</div>
+			</div>
+		</div>
     );
   }
 }

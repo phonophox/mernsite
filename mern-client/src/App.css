@@ -191,7 +191,7 @@ font-family: 'Karla', sans-serif;
 margin-bottom: 0px;
 }
 .bootstrapLogo{
-padding: 1vwpx;
+padding: 1vw;
 }
 .artBody{
 min-height: calc(100vh - var(--navbar-height));
@@ -332,4 +332,20 @@ font-size: calc(15px + .5vw + 1vh);
 }
 .info{
 padding:5px;
+}
+.StayHomeContainer{
+  position: absolute;
+  width: 100%;
+  left: 0px;
+}
+.StayHome{
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
+  bottom: 0px;
+  position: fixed;
+  z-index: 5000;
+}
+.PlayerSettings{
+  background-color: white;
 }
