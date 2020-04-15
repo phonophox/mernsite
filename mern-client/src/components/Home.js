@@ -94,7 +94,7 @@ class Home extends React.Component {
 
             <Banner className="welcomeBanner banner" key="banner" pose={this.state.isOpenBanner ? 'open' : 'closed'}>
                 <div key="welcome" id="heroText">
-                    <p id="welcome" className="text-center">Welcome to my website.</p>
+                    <p id="welcome" className="text-center">Welcome to my website</p>
                     <p className="message text-center">My name is Isaac Nelson, and I have made this website to showcase my work.</p>
                     <p className="message text-center">There are three other pages to this site.</p>
                 </div>
