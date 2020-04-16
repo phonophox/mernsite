@@ -34,6 +34,7 @@
 
 
   --tile-height: calc(100vh/22);
+  --tile-width: calc(100vw/44);
 
 }
 
@@ -356,8 +357,10 @@ padding:5px;
 .emptyTile{
   background-color: black;
   height: var(--tile-height) !important;
+  width: var(--tile-width) !important;
 }
 .occupiedTile{
   background-color: white;
   height: var(--tile-height) !important;
+  width: var(--tile-width) !important;
 }

@@ -16,21 +16,19 @@ class Board extends Component {
 
     render() {
         var newBoard;
-        if(this.props.board[i] === 0){
-            newBoard = <Col className="emptyTile"> </Col>;
+        if(this.props.board[i] === 0) {
+            newBoard = <div className="emptyTile"> </div>;
         }
         else{
-            var tileClasses = "occupiedTile";
-
-            newBoard = <Col className="occupiedTile"> </Col>;
+            newBoard = <div className="occupiedTile"> </div>;
         }
         var newBoard;
         for(var i=1; i < 484; i++){
             if(this.props.board[i] === 0){
-                newBoard = newBoard + <Col className="emptyTile"> </Col>
+                newBoard = newBoard + <div className="emptyTile"> </div>
             }
             else{
-                newBoard = newBoard + <Col className="occupiedTile"> </Col>;
+                newBoard = newBoard + <div className="occupiedTile"> </div>;
             }
         }
 
