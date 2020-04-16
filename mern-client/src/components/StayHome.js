@@ -6,7 +6,9 @@ import Col from 'react-bootstrap/Col';
 
 class StayHome extends Component {
   constructor() {
-    super();
+  	super();
+	  this.addAI = this.addAI.bind(this);
+
     this.state = {
     		
     	board : {},
@@ -165,7 +167,7 @@ class StayHome extends Component {
 									</Row>
 									<Row>
 										<Col>
-											<p>number of AI: {this.state.numAI} </p>
+											<p>number of AI: {this.state.numAI}</p>
 										</Col>
 									</Row>
 								</Container>
