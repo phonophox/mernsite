@@ -6,8 +6,8 @@ import Col from 'react-bootstrap/Col';
 import {forEach} from "react-bootstrap/utils/ElementChildren";
 
 class Board extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.props = {
             board: ''
