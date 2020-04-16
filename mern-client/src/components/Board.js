@@ -16,7 +16,7 @@ class Board extends Component {
 
     render() {
         var newBoard;
-        if(this.state.board[i] === 0){
+        if(this.props.board[i] === 0){
             newBoard = <Col className="emptyTile"> </Col>;
         }
         else{
@@ -26,7 +26,7 @@ class Board extends Component {
         }
         var newBoard;
         for(var i=1; i < 484; i++){
-            if(this.state.board[i] === 0){
+            if(this.props.board[i] === 0){
                 newBoard = newBoard + <Col className="emptyTile"> </Col>
             }
             else{
