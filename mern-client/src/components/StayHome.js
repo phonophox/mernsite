@@ -3,6 +3,7 @@ import '../App.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import {forEach} from "react-bootstrap/utils/ElementChildren";
 
 class StayHome extends Component {
   constructor() {
@@ -14,99 +15,100 @@ class StayHome extends Component {
 
     this.state = {
     		
-		board : <p>test</p>,
+		board : <div></div>,
     	numPlayers : 0,
     	numAI : 0,
-    	players : {
-    	}
+    	players : {}
     };
     
   };
-	generateBoard(numPlayers) {
+	generateBoard() {
 	  //create the 'board' a 2d array
 	  var board = {};
-	  for(var i=0; i<22; i++){
-		  board[i] = new Array(22);
-		  for(var j=0; j<22; j++){
-			  board[i][j] = 0;
-		  }
+	  for(var i=0; i<484; i++){
+			  board[i] = 0;
 	  }
 	  //populate the board 
 	  var total = 1;
-	  var activeRow = 10;
-	  var activeCol = 10;
+	  var activeIndex = 242;
 	  var direction;
-	  board[activeRow][activeCol] = 1;
+	  board[activeIndex] = 1;
 	  while(total<23){
 		  direction = Math.floor(Math.random()*3);
 		  if(direction === 0){
 			  //check if we exceed bounds of the board 
-			  if(activeRow === 0){
-				  direction = Math.floor(Math.random()*3);
-			  }
-			  else{
+			  if(!activeIndex < 22){
 				  //move the pointer
-				  activeRow = activeRow-1;
+				  activeIndex = activeIndex-22;
 				  //check if already a tile
-				  if(board[activeRow][activeCol]===0){
-					  board[activeRow][activeCol] = 1;
+				  if(board[activeIndex]===0){
+					  board[activeIndex] = 1;
 					  total+=1;
 				  }
 			  }
 		  }
 		  else if(direction === 1){
 			  //check if we exceed bounds of the board 
-			  if(activeCol === 21){
-				  direction = Math.floor(Math.random()*3);
-			  }
-			  else{
-				  //move the pointer
-				  activeCol = activeCol+1;
-				  //check if already a tile
-				  if(board[activeRow][activeCol]===0){
-					  board[activeRow][activeCol] = 1;
-					  total+=1;
-				  }
+			  if(!activeIndex % 22 === 21){
+				//move the pointer
+				activeIndex = activeIndex-22;
+				//check if already a tile
+				if(board[activeIndex]===0){
+				  board[activeIndex] = 1;
+				  total+=1;
+				}
 			  }
 		  }
 		  else if(direction === 2){
 			  //check if we exceed bounds of the board 
-			  if(activeRow === 21){
-				  direction = Math.floor(Math.random()*3);
-			  }
-			  else{
+			  if(!activeIndex > 462){
 				  //move the pointer
-				  activeRow = activeRow+1;
+				  activeIndex = activeIndex+22;
 				  //check if already a tile
-				  if(board[activeRow][activeCol]===0){
-					  board[activeRow][activeCol] = 1;
+				  if(board[activeIndex]===0){
+					  board[activeIndex] = 1;
 					  total+=1;
 				  }
 			  }
 		  }
 		  else if(direction === 3){
 			  //check if we exceed bounds of the board 
-			  if(activeCol === 0){
-				  direction = Math.floor(Math.random()*3);
-			  }
-			  else{
+			  if(!activeIndex & 22 === 0){
 				  //move the pointer
-				  activeCol = activeCol-1;
+				  activeIndex = activeIndex-1;
 				  //check if already a tile
-				  if(board[activeRow][activeCol]===0){
-					  board[activeRow][activeCol] = 1;
+				  if(board[activeIndex]===0){
+					  board[activeIndex] = 1;
 					  total+=1;
 				  }
 			  }
 		  }
 	  }
   };
+
   Board(state){
-	return (
-		<div className="Board">
-			{this.state.board}
-		</div>
-	);
+		var totalLength = 484;
+		var newBoard;
+	  	if(this.state.board[i] === 0){
+			newBoard = <Col className="emptyTile"> </Col>;
+	  	}
+	  	else{
+	  		var tileClasses = "occupiedTile";
+
+			newBoard = <Col className="occupiedTile"> </Col>;
+		}
+		var newBoard;
+		for(var i=1; i < 484; i++){
+			if(this.state.board[i] === 0){
+				newBoard = newBoard + <Col className="emptyTile"> </Col>
+			}
+			else{
+				newBoard = newBoard + <Col className="occupiedTile"> </Col>;
+			}
+		}
+		return (
+			newBoard
+		);
   };
   
   //utility functions for setting up player settings 
@@ -153,7 +155,7 @@ class StayHome extends Component {
 									</Row>
 									<Row>
 										<Col>
-											<button onClick={this.generateBoard}>Add AI</button>
+											<button onClick={this.generateBoard}>GenerateBoard</button>
 										</Col>
 									</Row>
 								</Container>
