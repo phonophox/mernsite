@@ -8,6 +8,8 @@ class StayHome extends Component {
   constructor() {
   	super();
 	  this.addAI = this.addAI.bind(this);
+	  this.addPlayer = this.addPlayer.bind(this);
+	  this.generateBoard = this.generateBoard.bind(this);
 
     this.state = {
     		
@@ -43,14 +45,6 @@ class StayHome extends Component {
     };
     
   };
-  setPlayers(){
-	  
-  };
-  
-  startGame(players, settings){
-	  
-  };
-
 	generateBoard(numPlayers) {
 	  //create the 'board' a 2d array
 	  var board = {};
