@@ -1,16 +1,46 @@
 import React, { Component } from 'react';
 import '../App.css';
-import Board from './Board.js'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import {forEach} from "react-bootstrap/utils/ElementChildren";
 
+class Board extends Component {
+    constructor(props) {
+        super(props);
+
+        this.props = {
+            board: ''
+        };
+    };
+
+    render() {
+        var newBoard;
+        if(this.props.board[0] === 0) {
+            newBoard = <div className="emptyTile"> </div>;
+        }
+        else{
+            newBoard = <div className="occupiedTile"> </div>;
+        }
+        var newBoard;
+        for(var i=1; i < 484; i++){
+            if(this.props.board[i] === 0){
+                newBoard = newBoard + <div className="emptyTile"> </div>
+            }
+            else{
+                newBoard = newBoard + <div className="occupiedTile"> </div>;
+            }
+        }
+
+        return (newBoard);
+    }
+}
+
 class StayHome extends Component {
   constructor(props) {
   	super(props);
     this.state = {
-    		
+
 		board : <div></div>,
     	numPlayers : 0,
     	numAI : 0,
@@ -20,7 +50,7 @@ class StayHome extends Component {
 	  this.addAI = this.addAI.bind(this);
 	  this.addPlayer = this.addPlayer.bind(this);
 	  this.generateBoard = this.generateBoard.bind(this);
-    
+
   };
 	generateBoard() {
 	  //create the 'board' a 2d array
@@ -28,7 +58,7 @@ class StayHome extends Component {
 	  for(var i=0; i<484; i++){
 		  newBoard[i] = 0;
 	  }
-	  //populate the board 
+	  //populate the board
 	  var total = 1;
 	  var activeIndex = 242;
 	  var direction;
@@ -36,7 +66,7 @@ class StayHome extends Component {
 	  while(total<23){
 		  direction = Math.floor(Math.random()*3);
 		  if(direction === 0){
-			  //check if we exceed bounds of the board 
+			  //check if we exceed bounds of the board
 			  if(!activeIndex < 22){
 				  //move the pointer
 				  activeIndex = activeIndex-22;
@@ -48,7 +78,7 @@ class StayHome extends Component {
 			  }
 		  }
 		  else if(direction === 1){
-			  //check if we exceed bounds of the board 
+			  //check if we exceed bounds of the board
 			  if(!activeIndex % 22 === 21){
 				//move the pointer
 				activeIndex = activeIndex-22;
@@ -60,7 +90,7 @@ class StayHome extends Component {
 			  }
 		  }
 		  else if(direction === 2){
-			  //check if we exceed bounds of the board 
+			  //check if we exceed bounds of the board
 			  if(!activeIndex > 462){
 				  //move the pointer
 				  activeIndex = activeIndex+22;
@@ -68,11 +98,12 @@ class StayHome extends Component {
 				  if(newBoard[activeIndex]===0){
 					  newBoard[activeIndex] = 1;
 					  total+=1;
+
 				  }
 			  }
 		  }
 		  else if(direction === 3){
-			  //check if we exceed bounds of the board 
+			  //check if we exceed bounds of the board
 			  if(!activeIndex & 22 === 0){
 				  //move the pointer
 				  activeIndex = activeIndex-1;
@@ -86,8 +117,8 @@ class StayHome extends Component {
 	  }
 		this.setState({board: newBoard});
   };
-  
-  //utility functions for setting up player settings 
+
+  //utility functions for setting up player settings
   addPlayer(){
 	  var newNumPlayers = this.state.numPlayers + 1;
 	  this.setState({numPlayers: newNumPlayers});
@@ -104,7 +135,7 @@ class StayHome extends Component {
 //  };
 
   render() {
-  	let board = this.state.board;
+    const { board } = this.state;
 
 	return (
 		<div className="StayHomeContainer">
