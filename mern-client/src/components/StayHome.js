@@ -7,13 +7,8 @@ import Col from 'react-bootstrap/Col';
 import {forEach} from "react-bootstrap/utils/ElementChildren";
 
 class StayHome extends Component {
-  constructor() {
-  	super();
-	  this.Board = this.Board.bind(this);
-	  this.addAI = this.addAI.bind(this);
-	  this.addPlayer = this.addPlayer.bind(this);
-	  this.generateBoard = this.generateBoard.bind(this);
-
+  constructor(props) {
+  	super(props);
     this.state = {
     		
 		board : <div></div>,
@@ -21,6 +16,10 @@ class StayHome extends Component {
     	numAI : 0,
     	players : {}
     };
+
+	  this.addAI = this.addAI.bind(this);
+	  this.addPlayer = this.addPlayer.bind(this);
+	  this.generateBoard = this.generateBoard.bind(this);
     
   };
 	generateBoard() {
