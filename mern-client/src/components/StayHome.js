@@ -50,8 +50,8 @@ class StayHome extends Component {
   startGame(players, settings){
 	  
   };
-  
-  initializeBoard(numPlayers) {
+
+	generateBoard(numPlayers) {
 	  //create the 'board' a 2d array
 	  var board = {};
 	  for(var i=0; i<22; i++){
@@ -130,10 +130,16 @@ class StayHome extends Component {
 		  }
 	  }
   };
+  Board(state){
+	return (
+		<p>{this.state.numAI}</p>
+	);
+  };
   
   //utility functions for setting up player settings 
   addPlayer(){
-	  	this.state.numPlayers +=1;
+	  var newNumPlayers = this.state.numPlayers + 1;
+	  this.setState({numPlayers: newNumPlayers});
   };
   addAI(){
   		var newNumAI = this.state.numAI + 1;
@@ -153,9 +159,10 @@ class StayHome extends Component {
 				<Container>
 					<Row>
 						<Col className="boardArea">
+							<Board state={this.state}></Board>
 						</Col>
 						<Col>
-							<div className="PlayerSettings">
+							<div className="GameSettings">
 								<Container>
 									<Row>
 										<Col>
@@ -167,7 +174,13 @@ class StayHome extends Component {
 									</Row>
 									<Row>
 										<Col>
+											<p>number of Players: {this.state.numPlayers}</p>
 											<p>number of AI: {this.state.numAI}</p>
+										</Col>
+									</Row>
+									<Row>
+										<Col>
+											<button onClick={this.generateBoard}>Add AI</button>
 										</Col>
 									</Row>
 								</Container>
