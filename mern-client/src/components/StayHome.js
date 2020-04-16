@@ -104,13 +104,15 @@ class StayHome extends Component {
 //  };
 
   render() {
+  	let board = this.state.board;
+
 	return (
 		<div className="StayHomeContainer">
 			<div className="StayHome">
 				<Container>
 					<Row>
 						<Col className="boardArea">
-							<Board board={this.state.board}></Board>
+							<Board board={board}></Board>
 						</Col>
 						<Col>
 							<div className="GameSettings">
