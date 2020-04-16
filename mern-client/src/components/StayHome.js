@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
+import Board from './Board.js'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -24,15 +25,15 @@ class StayHome extends Component {
   };
 	generateBoard() {
 	  //create the 'board' a 2d array
-	  var board = {};
+	  var newBoard = {};
 	  for(var i=0; i<484; i++){
-			  board[i] = 0;
+		  newBoard[i] = 0;
 	  }
 	  //populate the board 
 	  var total = 1;
 	  var activeIndex = 242;
 	  var direction;
-	  board[activeIndex] = 1;
+		newBoard[activeIndex] = 1;
 	  while(total<23){
 		  direction = Math.floor(Math.random()*3);
 		  if(direction === 0){
@@ -41,8 +42,8 @@ class StayHome extends Component {
 				  //move the pointer
 				  activeIndex = activeIndex-22;
 				  //check if already a tile
-				  if(board[activeIndex]===0){
-					  board[activeIndex] = 1;
+				  if(newBoard[activeIndex]===0){
+					  newBoard[activeIndex] = 1;
 					  total+=1;
 				  }
 			  }
@@ -53,8 +54,8 @@ class StayHome extends Component {
 				//move the pointer
 				activeIndex = activeIndex-22;
 				//check if already a tile
-				if(board[activeIndex]===0){
-				  board[activeIndex] = 1;
+				if(newBoard[activeIndex]===0){
+					newBoard[activeIndex] = 1;
 				  total+=1;
 				}
 			  }
@@ -65,8 +66,8 @@ class StayHome extends Component {
 				  //move the pointer
 				  activeIndex = activeIndex+22;
 				  //check if already a tile
-				  if(board[activeIndex]===0){
-					  board[activeIndex] = 1;
+				  if(newBoard[activeIndex]===0){
+					  newBoard[activeIndex] = 1;
 					  total+=1;
 				  }
 			  }
@@ -77,38 +78,14 @@ class StayHome extends Component {
 				  //move the pointer
 				  activeIndex = activeIndex-1;
 				  //check if already a tile
-				  if(board[activeIndex]===0){
-					  board[activeIndex] = 1;
+				  if(newBoard[activeIndex]===0){
+					  newBoard[activeIndex] = 1;
 					  total+=1;
 				  }
 			  }
 		  }
 	  }
-  };
-
-  Board(state){
-		var totalLength = 484;
-		var newBoard;
-	  	if(this.state.board[i] === 0){
-			newBoard = <Col className="emptyTile"> </Col>;
-	  	}
-	  	else{
-	  		var tileClasses = "occupiedTile";
-
-			newBoard = <Col className="occupiedTile"> </Col>;
-		}
-		var newBoard;
-		for(var i=1; i < 484; i++){
-			if(this.state.board[i] === 0){
-				newBoard = newBoard + <Col className="emptyTile"> </Col>
-			}
-			else{
-				newBoard = newBoard + <Col className="occupiedTile"> </Col>;
-			}
-		}
-		return (
-			newBoard
-		);
+		this.setState({board: newBoard});
   };
   
   //utility functions for setting up player settings 
@@ -134,7 +111,7 @@ class StayHome extends Component {
 				<Container>
 					<Row>
 						<Col className="boardArea">
-							<Board state={this.state}></Board>
+							<Board board={this.state.board}></Board>
 						</Col>
 						<Col>
 							<div className="GameSettings">
