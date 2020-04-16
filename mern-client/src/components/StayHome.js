@@ -7,40 +7,17 @@ import Col from 'react-bootstrap/Col';
 class StayHome extends Component {
   constructor() {
   	super();
+	  this.Board = this.Board.bind(this);
 	  this.addAI = this.addAI.bind(this);
 	  this.addPlayer = this.addPlayer.bind(this);
 	  this.generateBoard = this.generateBoard.bind(this);
 
     this.state = {
     		
-    	board : {},
+		board : <p>test</p>,
     	numPlayers : 0,
     	numAI : 0,
     	players : {
-    		player1: {
-    			name: '',
-    			color: ''
-    		},
-    		player2: {
-    			name: '',
-    			color: ''
-    		},
-    		player3: {
-    			name: '',
-    			color: ''
-    		},
-    		player4: {
-    			name: '',
-    			color: ''
-    		},
-    		player5: {
-    			name: '',
-    			color: ''
-    		},
-    		player6: {
-    			name: '',
-    			color: ''
-    		}
     	}
     };
     
@@ -126,7 +103,9 @@ class StayHome extends Component {
   };
   Board(state){
 	return (
-		<p>{this.state.numAI}</p>
+		<div className="Board">
+			{this.state.board}
+		</div>
 	);
   };
   
