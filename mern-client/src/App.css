@@ -33,8 +33,15 @@
 
 
 
-  --tile-height: calc(100vh/22);
-  --tile-width: calc(100vw/44);
+  --tile-height: calc(100vh/12);
+  --tile-width: calc(100vw/24);
+
+  --wood-color: #C19A6B80;
+  --stone-color: #c1c1c180;
+  --fiber-color: #228B2280;
+  --ore-color: #00308F80;
+  --grain-color: #FFD70080;
+  --spice-color: #AF002A80;
 
 }
 
@@ -351,16 +358,67 @@ padding:5px;
   position: fixed;
   z-index: 5000;
 }
-.GameSettings{
+.gameSettings{
+  background-color: white;
+  margin-top:10px;
+}
+.gameStats{
   background-color: white;
 }
 .emptyTile{
-  background-color: black;
-  height: var(--tile-height) !important;
-  width: var(--tile-width) !important;
+  background-color: blue;
 }
 .occupiedTile{
   background-color: white;
+}
+.tile{
   height: var(--tile-height) !important;
   width: var(--tile-width) !important;
+  margin: 0 !important;
+  float: left;
+}
+.boardArea{
+  padding: 0px !important;
+}
+.hidden{
+  display: none;
+}
+.currentGameInfo{
+  background-color: white;
+}
+.woodTile{
+  background-color: var(--wood-color);
+}
+.fiberTile{
+  background-color: var(--fiber-color);
+}
+.stoneTile{
+  background-color: var(--stone-color);
+}
+.oreTile{
+  background-color: var(--ore-color);
+}
+.grainTile{
+  background-color: var(--grain-color);
+}
+.spiceTile{
+  background-color: var(--spice-color);
+}
+.playerResourceRow{
+  border-top: 1px solid black;
+}
+.noPadding{
+  padding-left: 0;
+  padding-right: 0;
+}
+.noMargin{
+  margin-left: 0;
+  margin-right: 0;
+}
+.boardArea{
+  padding: 10px;
+}
+.playerSttingField{
+  border-top: 1px solid black;
+  margin-top: 5px;
 }
